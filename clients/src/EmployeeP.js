@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Link, useNavigate, useParams } from 'react-router-dom';
 import axios from 'axios';
 import './App.css';
-import logo from './assets/images/logo4.png';
+import logo from './assets/images/MMMLCropped.png';
 import Profile from './profile/Profile';
 import SignOut from './Sign in/SignOut';
 import HeaderEmployee from './Header/HeaderEmployee';
