@@ -1,10 +1,21 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+<<<<<<< HEAD
 import './HeaderEmployee.css'; // Scoped CSS for header
 import logo from '../assets/images/MMMLCropped.png';
 import SignOut from '../Sign in/SignOut'; // Import SignOut component
+=======
+import './HeaderEmployee.css';
+import logo from '../assets/images/logo4.png';
+import SignOut from '../Sign in/SignOut';
 
-const HeaderEmployee = ({ userId, auth, onSignOut }) => {
+const HeaderEmployee = ({ userId, auth }) => {
+  const handleSignOut = () => {
+    // Optional: Add any additional logic here if needed
+    console.log('User signed out!');
+  };
+>>>>>>> 155dc14851925bc056708db6513d9eab8e4be60c
+
   return (
     <header className="header-employee-navbar">
       <img src={logo} alt="Logo" className="header-employee-logo" />
@@ -14,15 +25,15 @@ const HeaderEmployee = ({ userId, auth, onSignOut }) => {
           <li><a href="#vision">VISION</a></li>
           <li><a href="#mission">MISSION</a></li>
           <li><Link to="/view-job">View Job Posting</Link></li>
-          <li><Link to="/employee/:id/applied-jobs">View Applied Jobs</Link></li>
-            {auth && userId && (
-              <li><Link to={`/profile/${userId}/employee`}>Profile</Link></li> // Added /employee as accountType
-            )}
-          </ul>
+          <li><Link to={`/employee/${userId}/applied-jobs`}>View Applied Jobs</Link></li>
+          {auth && userId && (
+            <li><Link to={`/profile/${userId}/employee`}>Profile</Link></li>
+          )}
+        </ul>
       </nav>
       <div className="header-employee-button">
         {/* Use the SignOut component */}
-        <SignOut onSignOut={onSignOut} />
+        <SignOut onSignOut={handleSignOut} />
       </div>
     </header>
   );
