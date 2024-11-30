@@ -11,14 +11,14 @@ const SignOut = ({ onSignOut }) => {
       // Make a request to your sign-out API endpoint
       await axios.post('http://localhost:8081/signout', {}, {
         headers: {
-          Authorization: `Bearer ${localStorage.getItem('authToken')}`, // Send token if needed
-        }
+          Authorization: `Bearer ${localStorage.getItem('authToken')}`,
+        },
       });
 
-      // Clear all local storage data and update authentication state
+      // Clear session and notify parent
       localStorage.clear();
-      onSignOut(); // Set isAuthenticated to false in App.js
-      navigate('/'); // Redirect to the homepage
+      if (onSignOut) onSignOut();
+      navigate('/'); // Redirect to home
     } catch (error) {
       console.error('Error signing out:', error);
       alert('Failed to sign out. Please try again.');

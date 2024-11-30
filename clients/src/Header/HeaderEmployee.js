@@ -5,9 +5,10 @@ import logo from '../assets/images/logo4.png';
 import SignOut from '../Sign in/SignOut';
 
 const HeaderEmployee = ({ userId, auth }) => {
+  // Define the sign-out logic
   const handleSignOut = () => {
-    // Optional: Add any additional logic here if needed
-    console.log('User signed out!');
+    console.log('Clearing session and redirecting...');
+    // Redirect and notify app state if necessary
   };
 
   return (
@@ -26,7 +27,6 @@ const HeaderEmployee = ({ userId, auth }) => {
         </ul>
       </nav>
       <div className="header-employee-button">
-        {/* Use the SignOut component */}
         <SignOut onSignOut={handleSignOut} />
       </div>
     </header>
